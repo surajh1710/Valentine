@@ -334,4 +334,9 @@ input[type="range"] {
   .cta-row {
     gap: 8px;
   }
+
+  .cta-row .btn {
+    width: auto;
+    flex: 0 0 auto;
+  }
 }
