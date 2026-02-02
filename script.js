@@ -9,6 +9,7 @@ let currentStep = 0;
 const totalSteps = panels.length;
 let dodgeCount = 0;
 let noUnlocked = false;
+let dodgeEnabled = false;
 
 const showStep = (index) => {
   panels.forEach((panel) => panel.classList.remove("active"));
@@ -36,8 +37,21 @@ const createHearts = () => {
 
 if (noBtn) {
   const container = document.querySelector(".card");
+  const repositionNo = (containerRect, noRect) => {
+    const padding = 16;
+    const maxX = containerRect.width - noRect.width - padding;
+    const maxY = containerRect.height - noRect.height - padding;
+    const newX = Math.max(padding, Math.min(Math.random() * maxX, maxX));
+    const newY = Math.max(padding, Math.min(Math.random() * maxY, maxY));
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${newX}px`;
+    noBtn.style.top = `${newY}px`;
+    container.classList.add("wiggle");
+    setTimeout(() => container.classList.remove("wiggle"), 250);
+  };
+
   const moveAway = (event) => {
-    if (!container || noUnlocked) return;
+    if (!container || noUnlocked || !dodgeEnabled) return;
     const containerRect = container.getBoundingClientRect();
     const noRect = noBtn.getBoundingClientRect();
     const mouseX = event.clientX;
@@ -47,16 +61,7 @@ if (noBtn) {
     const distance = Math.hypot(mouseX - noCenterX, mouseY - noCenterY);
     if (distance > 170) return;
 
-    const padding = 16;
-    const maxX = containerRect.width - noRect.width - padding;
-    const maxY = containerRect.height - noRect.height - padding;
-    const newX = Math.max(padding, Math.min(Math.random() * maxX, maxX));
-    const newY = Math.max(padding, Math.min(Math.random() * maxY, maxY));
-
-    noBtn.style.left = `${newX}px`;
-    noBtn.style.top = `${newY}px`;
-    container.classList.add("wiggle");
-    setTimeout(() => container.classList.remove("wiggle"), 250);
+    repositionNo(containerRect, noRect);
 
     dodgeCount += 1;
     if (dodgeCount >= 5) {
@@ -73,6 +78,20 @@ if (noBtn) {
   });
 
   noBtn.addEventListener("click", () => {
+    if (!container) return;
+    if (!dodgeEnabled) {
+      dodgeEnabled = true;
+      noBtn.style.position = "absolute";
+      const containerRect = container.getBoundingClientRect();
+      const noRect = noBtn.getBoundingClientRect();
+      repositionNo(containerRect, noRect);
+      dodgeCount += 1;
+      if (dodgeCount >= 5) {
+        noUnlocked = true;
+        noBtn.textContent = "No (okay, you got me)";
+      }
+      return;
+    }
     if (!noUnlocked) return;
     showStep(Math.min(1, totalSteps - 1));
   });

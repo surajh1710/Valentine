@@ -248,6 +248,10 @@ input[type="range"] {
   position: relative;
 }
 
+.cta-row .btn {
+  width: auto;
+}
+
 .hint {
   font-size: 12px;
   color: #8b6ca8;
@@ -257,10 +261,6 @@ input[type="range"] {
   animation: wiggle 0.6s ease;
 }
 
-
-#noBtn {
-  position: absolute;
-}
 
 .heart {
   position: fixed;
