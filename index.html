@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="emoji-cloud" aria-hidden="true">
+      <span>🌻</span><span>💖</span><span>🌻</span><span>💛</span><span>🌻</span><span>💘</span><span>🌻</span><span>💛</span>
+      <span>💖</span><span>🌻</span><span>💛</span><span>🌻</span><span>💘</span><span>🌻</span><span>🌻</span><span>💖</span>
+      <span>🌻</span><span>💛</span><span>🌻</span><span>💖</span><span>🌻</span><span>💘</span><span>🌻</span><span>💛</span>
+      <span>💛</span><span>🌻</span><span>💘</span><span>🌻</span><span>💖</span><span>🌻</span><span>🌻</span><span>💛</span>
+      <span>🌻</span><span>💛</span><span>🌻</span><span>💖</span><span>🌻</span><span>💘</span><span>🌻</span><span>💖</span>
+      <span>💘</span><span>🌻</span><span>💖</span><span>🌻</span><span>💛</span><span>🌻</span><span>🌻</span><span>💘</span>
+      <span>🌻</span><span>💖</span><span>🌻</span><span>💛</span><span>🌻</span><span>💘</span><span>🌻</span><span>💛</span>
+    </div>
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">sunflower mode: on</p>
+        <h1>Hey <span class="highlight" id="Gagana">Mine</span> ✨</h1>
+        <p class="subtitle">I kept only the cutest part, just for you.</p>
+      </header>
+
+      <section class="panel active" data-step="final">
+        <div class="card">
+          <h2>Just a tiny love burst</h2>
+          <p class="big">You’re my favorite sunshine. 🌻</p>
+          <div class="cta-row" id="finalButtons">
+            <button class="btn primary" id="yesBtn">Yes 💖</button>
+            <button class="btn ghost" id="noBtn">No (try me)</button>
+          </div>
+          <p class="hint">Tip: the “No” button is shy and does cardio.</p>
+        </div>
+      </section>
+
+      <section class="panel" data-step="sweet">
+        <div class="card celebrate">
+          <h2>Okay, caught it!</h2>
+          <p class="big">I knew you’d catch that “No.” 😅</p>
+          <p>
+            I know you are a little annoyed, baby, but you are my whole world. 🌻
+            I want you to be the happiest, always.iam chworrryyy 😢  So please accept my proposal…
+          </p>
+          <p class="big">Will you be my Valentine?</p>
+          <button class="btn primary big-yes" id="bigYesBtn">BIGGG YESSS 💛</button>
+        </div>
+      </section>
+
+      <section class="panel" data-step="celebrate">
+        <div class="card celebrate">
+          <h2>Yay!!</h2>
+          <p class="big">You just made my day. 💘</p>
+          <p id="summary"></p>
+          <button class="btn primary" id="replayBtn">Replay</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
